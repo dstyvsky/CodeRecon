@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   	@user = User.new(user_params)
 
   	if @user.save
-      log_in @user
+      @user.send_activation_email
   		flash[:success] = "Login Successful, Welcome"
       redirect_to root_path
 
