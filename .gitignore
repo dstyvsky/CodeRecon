@@ -16,4 +16,4 @@
 !/log/.keep
 /tmp
 
-/config/envrionment_variables/*
+/config/environment_variables/*
