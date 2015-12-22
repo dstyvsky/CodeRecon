@@ -38,7 +38,7 @@ class User < ActiveRecord::Base
 	end
 
 	def authenticated?(attribute, token)
-		digest = send("#{attribute}_digst")
+		digest = send("#{attribute}_digest")
 		return false if remember_digest.nil?
 		BCryot::Password.new(digest).is_password?(token)
 	end
