@@ -12,7 +12,7 @@ class UsersController < ApplicationController
 
   	if @user.save
       @user.send_activation_email
-  		flash[:success] = "Login Successful, Welcome"
+  		flash[:info] = "Please check your email to activate your account."
       redirect_to root_path
 
   	else 
