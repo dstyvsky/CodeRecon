@@ -79,7 +79,7 @@ Rails.application.configure do
 
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
-  host = 'heroku.com'
+  host = 'guarded-mesa-6423.herokuapp.com'
   config.action_mailer.default_url_options = { host: host }
   config.action_mailer.smtp_settings = {
       :address              => "smtp.gmail.com",
