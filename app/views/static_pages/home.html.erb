@@ -1,1 +1,11 @@
 <h1>Code Recon</h1>
+
+  <div class="col-md-8">
+    <% if @user.myposts.any? %>
+      <h3>Myposts (<%= @user.myposts.count %>)</h3>
+      <ol class="microposts">
+        <%= render @myposts %>
+      </ol>
+      
+    <% end %>
+  </div>
