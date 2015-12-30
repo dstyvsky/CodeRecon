@@ -1,6 +1,7 @@
 class StaticPagesController < ApplicationController
 	def home
 		@user = User.first
-		@myposts = @user.myposts
+		@mypost = current_user.myposts.build if logged_in?
+		@feed_items = User.first.feed
 	end
 end
