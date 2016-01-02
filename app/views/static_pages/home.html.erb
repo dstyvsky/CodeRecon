@@ -2,15 +2,15 @@
 
   <div class="col-md-8">
     <% if @user.myposts.any? %>
-      	<h3>Myposts (<%= @user.myposts.count %>)</h3>
+      	<h3></h3>
      	 <ol class="microposts">
 
-        	<%= render @feed_items %>
+        	<%= render Mypost.all %>
      	 </ol>
       
     <% end %>
   </div>
-<% if logged_in? %>
+<% if logged_in? && current_user.admin %>
 	<div>
 		<%= form_for(@mypost) do |f| %>
 		  <%= render 'shared/error_messages', object: f.object %>
