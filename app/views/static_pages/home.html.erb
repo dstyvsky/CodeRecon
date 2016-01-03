@@ -12,6 +12,7 @@
       
     <% end %>
   </div>
+
 <% if logged_in? && current_user.admin %>
 	<div>
 		<%= form_for(@mypost) do |f| %>

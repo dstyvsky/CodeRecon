@@ -2,6 +2,6 @@
 
   <span class="title"><h5><%= mypost.title %></h5></span>
   <span class="content"><%= simple_format(mypost.content) %></span>
-  <span class="user"><%= link_to mypost.user.name, mypost.user %></span>
+  <span class="time">- Last updated <%= time_ago_in_words(mypost.created_at) %> ago</span>
  
 </li>
