@@ -1,6 +1,6 @@
 <li id="mypost-<%= mypost.id %>">
 
-  
+  <span class="title"><h5><%= mypost.title %></h5></span>
   <span class="content"><%= simple_format(mypost.content) %></span>
   <span class="user"><%= link_to mypost.user.name, mypost.user %></span>
  
