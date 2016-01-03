@@ -9,6 +9,10 @@ html body{
 h1{
 	color: white
 }
+h4{
+  color: white;
+  font-size: 12pt;
+}
 
 /* footer */
 html{
@@ -122,4 +126,16 @@ label{
 
 p{
   color:white;
+}
+
+li{
+  list-style: none;
+}
+
+/* Header */
+
+.divider{
+  height: 1px;
+  width: 80%;
+  background-color: white;
 }
