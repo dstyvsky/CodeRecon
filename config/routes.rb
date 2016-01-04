@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get    'login'      =>  'sessions#new'
   post   'login'      =>  'sessions#create'
   delete 'logout'     =>  'sessions#destroy'
+  get    'code_recon_todo' =>  'projects#code_recon_todo'
 
   resources :users
   resources :account_activations, only: [:edit]
