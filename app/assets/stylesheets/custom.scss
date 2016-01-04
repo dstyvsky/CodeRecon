@@ -128,6 +128,7 @@ label{
 
 .content {
   color: white;
+  width: 100%;
 }
 
 .timestamp{
@@ -143,6 +144,7 @@ li{
 }
 .col-md-8{
   margin-bottom: 100px;
+  width: 80%;
 }
 .time{
   color: white;
@@ -155,4 +157,30 @@ li{
   height: 1px;
   width: 80%;
   background-color: white;
+}
+
+/* Encyclopedia List */
+#sidebar{
+  width: 20%;
+  float:right;
+}
+.encyclopedia_list{
+  border-left: white 1px solid;
+
+  border-radius: 25px;
+ 
+  float:right;
+  margin-right: 5%;
+  margin-top: 80px;
+  padding-bottom: 40px;
+  padding-right: 5%;
+  width: 100%;
+
+  
+}
+
+.encyclopedia_list ul{
+  margin-top: 30px;
+  margin-right: 0;
+
 }
