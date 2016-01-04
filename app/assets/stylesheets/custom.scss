@@ -32,6 +32,7 @@ html{
 body {
     margin: 0 0 100px; /* bottom = footer height */
     padding: 25px;
+    width: 100%;
 }
 
 #footer {
@@ -144,7 +145,8 @@ li{
 }
 .col-md-8{
   margin-bottom: 100px;
-  width: 80%;
+  width: 70%;
+  display: inline-block;
 }
 .time{
   color: white;
@@ -169,7 +171,7 @@ li{
 
   border-radius: 25px;
  
-  float:right;
+  display: inline-block;
   margin-right: 5%;
   margin-top: 80px;
   padding-bottom: 40px;
