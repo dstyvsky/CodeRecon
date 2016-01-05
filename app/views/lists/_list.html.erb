@@ -1,3 +1,12 @@
-<li >
+<li class=<%="striker" if list.completed == true%>>
 	<%= list.content %>
+	<% if logged_in? && current_user.admin %>
+		<div>
+			<%=link_to "delete", list, method: :delete,
+										data: {confirm: "You sure?"} %>
+		</div>
+		<div>
+			<%=link_to "Complete", list, method: :update %>
+		</div>
+	<% end %>
 </li>

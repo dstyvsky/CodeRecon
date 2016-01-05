@@ -140,7 +140,7 @@ p{
   color:white;
 }
 
-li{
+ol{
   list-style: none;
 }
 .col-md-8{
@@ -195,4 +195,10 @@ li{
 }
 .pane_head{
   text-align: center;
+}
+
+/* Lists */
+
+.striker{
+  text-decoration: line-through;
 }

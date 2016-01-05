@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160104205628) do
+ActiveRecord::Schema.define(version: 20160105182902) do
 
   create_table "interests", force: :cascade do |t|
     t.string   "content"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20160104205628) do
     t.integer  "interest_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.boolean  "completed"
   end
 
   add_index "lists", ["interest_id"], name: "index_lists_on_interest_id"

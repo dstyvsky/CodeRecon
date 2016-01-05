@@ -4,7 +4,17 @@
 	</div>
 	<div class="pane_content">
 		<%= render List.all %>
-
-
 	</div>
+
+	<% if logged_in? && current_user.admin %>
+		<div>
+			<%= form_for(@list) do |f| %>
+			  
+			   <%= f.text_area :content, placeholder: "Add a list item..." %>
+			  </div>
+			  <%= f.submit "Post", class: "btn btn-large btn-primary" %>
+			<% end %>
+		</div>
+	<% end %>
+	
 </div>
