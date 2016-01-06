@@ -99,7 +99,9 @@ label{
 
 
 /* forms  */
-
+.new_mypost{
+  width: 100%;
+}
 #error_explanation {
   color: red;
   ul {
@@ -202,3 +204,4 @@ ol{
 .striker{
   text-decoration: line-through;
 }
+

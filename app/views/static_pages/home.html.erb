@@ -9,9 +9,7 @@
      	 </ol>
       
     <% end %>
-  </div>
-
-<% if logged_in? && current_user.admin %>
+    <% if logged_in? && current_user.admin %>
 	<div>
 		<%= form_for(@mypost) do |f| %>
 		  <%= render 'shared/error_messages', object: f.object %>
@@ -22,3 +20,6 @@
 		<% end %>
 	</div>
 <% end %>
+  </div>
+
+
