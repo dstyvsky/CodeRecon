@@ -1,6 +1,6 @@
 class ListsController < ApplicationController
 	before_action :logged_in_user, only: [:create, :destroy, :update]
-
+	
 	def create
 		@list = Interest.find_by_id(1).lists.build(list_params)
 		if @list.save

@@ -175,7 +175,7 @@ ol{
  
   display: inline-block;
   margin-right: 5%;
-  margin-top: 80px;
+  
   padding-bottom: 40px;
   padding-right: 5%;
   width: 100%;
@@ -189,6 +189,19 @@ ol{
 
 }
 
+.side_header p {
+  text-color: white;
+}
+.side_headers{
+  width: 100%;
+  margin-top: 60px;
+  margin-bottom: 10px;
+
+
+}
+
+
+
 /* Pages General */
 
 .main_pane{
@@ -201,7 +214,7 @@ ol{
 
 /* Lists */
 
-.striker{
+.striker {
   text-decoration: line-through;
 }
 
