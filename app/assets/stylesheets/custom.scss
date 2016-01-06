@@ -186,6 +186,7 @@ ol{
 .encyclopedia_list ul{
   margin-top: 30px;
   margin-right: 0;
+  list-style: none;
 
 }
 
@@ -205,11 +206,18 @@ ol{
 /* Pages General */
 
 .main_pane{
+
   display: inline-block;
   width: 70%;
 }
 .pane_head{
-  text-align: center;
+  text-align: left;
+  margin-top: 50px;
+}
+
+.pane_content{
+  margin-top: 25px;
+  margin-left: 50px;
 }
 
 /* Lists */
