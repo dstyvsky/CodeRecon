@@ -21,15 +21,17 @@
 	</div>
 
 	<div class="pane_content">
-		<%= render List.all %>
+		<%=  render List.where(interest_id: 1)%> %>
 	</div>
 
 	<% if logged_in? && current_user.admin %>
 		<div>
-			<%= form_for(@list) do |f| %>
-			  
+			<%= form_for :list , url: lists_path do |f| %>
+				
+				
 			   <%= f.text_area :content, placeholder: "Add a list item..." %>
-			  </div>
+			   <%= f.hidden_field(:interest_id) %> 
+			  
 			  <%= f.submit "Post", class: "btn btn-large btn-primary" %>
 			<% end %>
 		</div>

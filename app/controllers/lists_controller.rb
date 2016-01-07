@@ -1,14 +1,13 @@
 class ListsController < ApplicationController
 	before_action :logged_in_user, only: [:create, :destroy, :update]
-	
+
+
 	def create
-		@list = Interest.find_by_id(1).lists.build(list_params)
-		if @list.save
-			flash[:success] = "List Item created!"
-			redirect_to code_recon_todo_path
-		else
-			render 'static_pages/home'
-		end
+		@list = List.new(list_params)
+		@list.save
+		redirect_to :back
+		
+
 	end
 
 	def destroy
@@ -21,14 +20,14 @@ class ListsController < ApplicationController
 		@list = List.find(params[:id])
 		@list.toggle(:completed)
 		@list.save
-		redirect_to code_recon_todo_path
+		redirect_to :back
 	end
 
 
 	private
 
 		def list_params
-			params.require(:list).permit(:content)
+			params.require(:list).permit(:content, :interest_id)
 		end
 		
 

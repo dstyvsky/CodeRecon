@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  root                    'static_pages#home'
   get 'password_resets/new'
 
   get 'password_resets/edit'
@@ -8,13 +8,14 @@ Rails.application.routes.draw do
 
   get 'users/new'
 
-  root                    'static_pages#home'
+  
 
   get    'signup'     =>  'users#new'
   get    'login'      =>  'sessions#new'
   post   'login'      =>  'sessions#create'
   delete 'logout'     =>  'sessions#destroy'
   get    'code_recon_todo' =>  'projects#code_recon_todo'
+  get    'aggregate_todo' =>  'projects#aggregate_todo'
 
   resources :users
   resources :account_activations, only: [:edit]

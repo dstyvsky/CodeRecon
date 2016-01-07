@@ -1,0 +1,40 @@
+<div class="main_pane">
+	<div class="pane_head">
+		<h1>Objective</h1>
+	</div><p>One of the sites that I hope to create in the near future is an aggragate service. This has been done previously by the likes of REDDIT, VOAT, HACKERNEWS, and GOOGLE NEWS sans user votes. Actually, I'm not quite sure how thier algorithm works so that may also be worth exploring. <br><br>
+
+Armed with RAILS, in theory this should not be all that dificult. Perhaps one of the more interesting challenges that this would bring would be the comment branching. I have a rough visualiztion of how each comment would act as a node, but I cannot see from here exactly how this would be implemented while using a PostgresQL database as opposed to a binary tree in Ruby. <br><br>
+
+Apart from that, financing a website such as this would require some ingenuity. These sites rely on a large userbase and therefore more powerful servers. Reddit seems to have Reddit gold, Hacker News as a Y-combinator site benefits from the publicity and I am not sure how VOAT is funded. This seems to be the least of the worries though, since this would require the site to at least become mildy succesful.<br><br>
+
+If this is of interest to you, stay tuned, those updates will be posted here.
+
+		</p>
+	<div>
+	<p></p>
+	</div>
+	<div class="pane_head">
+		<h1>List of Features to Add</h1>
+	</div>
+	<div>
+	<p></p>
+	</div>
+
+	<div class="pane_content">
+		<%= render List.where(interest_id: 2)%>
+	</div>
+
+	<% if logged_in? && current_user.admin %>
+		<div>
+			<%= form_for :list , url: lists_path do |f| %>
+				
+				
+			   <%= f.text_area :content, placeholder: "Add a list item..." %>
+			   <%= f.hidden_field(:interest_id) %> 
+			  
+			  <%= f.submit "Post", class: "btn btn-large btn-primary" %>
+			<% end %>
+		</div>
+	<% end %>
+	
+</div>
