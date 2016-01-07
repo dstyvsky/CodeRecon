@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   delete 'logout'     =>  'sessions#destroy'
   get    'code_recon_todo' =>  'projects#code_recon_todo'
   get    'aggregate_todo' =>  'projects#aggregate_todo'
+  get    'knowledge_center' =>  'projects#knowledge_center'
 
   resources :users
   resources :account_activations, only: [:edit]

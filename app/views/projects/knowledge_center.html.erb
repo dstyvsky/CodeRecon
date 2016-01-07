@@ -1,0 +1,40 @@
+<div class="main_pane">
+	<div class="pane_head">
+		<h1>Objective</h1>
+	</div><p>
+		With this application I hope to create a place where anything can be learned. I am hoping to create a type of hierarchical map of human skillsets. The goal would be to not include information that can be easily looked up on Google, but to instead provide a resource for acquiring information that must reside in the grey matter. <br><br>
+
+If possible, the best way to learn a thing would be voted upon by the community. This method would then stay at the top of the page, similar to an answer on Stack Exchange. The difference would be that these steps are then organized into a hierarchy of skills that build on top of each other.<br><br>
+
+For example, to learn how to develop a website, the map may look something like this:
+	<div>
+	<p></p>
+	</div>
+	<div class="pane_head">
+		<h1>List of Features to Add</h1>
+	</div>
+	<div>
+	<p>
+		
+
+	</p>
+	</div>
+
+	<div class="pane_content">
+		<%=  render List.where(interest_id: 3)%>
+	</div>
+
+	<% if logged_in? && current_user.admin %>
+		<div>
+			<%= form_for :list , url: lists_path do |f| %>
+				
+				
+			   <%= f.text_area :content, placeholder: "Add a list item..." %>
+			   <%= f.hidden_field(:interest_id) %> 
+			  
+			  <%= f.submit "Post", class: "btn btn-large btn-primary" %>
+			<% end %>
+		</div>
+	<% end %>
+	
+</div>
