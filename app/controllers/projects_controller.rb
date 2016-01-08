@@ -7,5 +7,9 @@ class ProjectsController < ApplicationController
 	def aggregate_todo
 		@list = Interest.find_by_id(2).lists.build if logged_in?
 	end
+
+	def knowledge_center
+		@list = Interest.find_by_id(2).lists.build if logged_in?
+	end
 	
 end
