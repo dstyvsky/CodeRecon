@@ -14,6 +14,12 @@ class MypostsController < ApplicationController
 	def destroy
 	end
 
+	def show
+		@mypost = Mypost.first
+
+	end
+
+
 	private
 
 		def mypost_params

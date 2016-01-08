@@ -1,6 +1,10 @@
 <li id="mypost-<%= mypost.id %>">
 
-  <span class="title"><h5><%= mypost.title %></h5></span>
+  <span class="title">
+  	<h5>
+  		<%= link_to mypost.title, mypost %>
+  	</h5>
+  </span>
   <span class="content"><%= simple_format(mypost.content) %></span>
   <span class="time">- Last updated <%= time_ago_in_words(mypost.created_at) %> ago</span>
  
