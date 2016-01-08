@@ -6,8 +6,14 @@
 html body{
 	background-color: rgb(48,10, 36);
 }
-h1{
+h1, h2, a, a:hover{
 	color: white
+}
+
+
+h3{
+  color: white;
+
 }
 h4{
   color: white;
@@ -163,6 +169,8 @@ ol{
   background-color: white;
 }
 
+
+
 /* Encyclopedia List */
 #sidebar{
   width: 20%;
@@ -212,12 +220,17 @@ ol{
 }
 .pane_head{
   text-align: left;
-  margin-top: 50px;
+  margin-top: 30px;
 }
 
 .pane_content{
   margin-top: 25px;
   margin-left: 50px;
+}
+.project_title{
+  margin-top: 30px;
+    text-align: center;
+
 }
 
 /* Lists */
