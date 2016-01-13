@@ -15,7 +15,7 @@ class MypostsController < ApplicationController
 	end
 
 	def show
-		@mypost = Mypost.first
+		@mypost = Mypost.find(params[:id])
 
 	end
 
