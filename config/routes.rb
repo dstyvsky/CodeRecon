@@ -10,13 +10,14 @@ Rails.application.routes.draw do
 
   
 
-  get    'signup'     =>  'users#new'
-  get    'login'      =>  'sessions#new'
-  post   'login'      =>  'sessions#create'
-  delete 'logout'     =>  'sessions#destroy'
-  get    'code_recon_todo' =>  'projects#code_recon_todo'
-  get    'aggregate_todo' =>  'projects#aggregate_todo'
+  get    'signup'           =>  'users#new'
+  get    'login'            =>  'sessions#new'
+  post   'login'            =>  'sessions#create'
+  delete 'logout'           =>  'sessions#destroy'
+  get    'code_recon_todo'  =>  'projects#code_recon_todo'
+  get    'aggregate_todo'   =>  'projects#aggregate_todo'
   get    'knowledge_center' =>  'projects#knowledge_center'
+  get    'learn_ruby'       =>  'projects#learn_ruby'
 
   resources :users
   resources :account_activations, only: [:edit]
