@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160121204605) do
+ActiveRecord::Schema.define(version: 20160121230656) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "saying"
@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 20160121204605) do
     t.string   "activation_digest"
     t.boolean  "activated",         default: false
     t.datetime "activated_at"
-    t.string   "rest_digest"
+    t.string   "reset_digest"
     t.datetime "reset_sent_at"
   end
 
