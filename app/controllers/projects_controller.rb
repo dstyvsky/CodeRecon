@@ -11,5 +11,9 @@ class ProjectsController < ApplicationController
 	def knowledge_center
 		@list = Interest.find_by_id(3).lists.build if logged_in?
 	end
+
+	def wuds
+		@comment = Interest.find_by_id(4).comments.build if logged_in?
+	end
 	
 end

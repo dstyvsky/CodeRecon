@@ -10,6 +10,7 @@
 #
 
 class User < ActiveRecord::Base
+	has_many :comments
 	has_many :interests
 	has_many :myposts
 	attr_accessor :remember_token, :activation_token, :reset_token

@@ -97,10 +97,30 @@ In the end, I did not implement the same system as had inspired me to this proje
 </p>
 
 
+<h2>Comments</h2>
 
+<%=  render Comment.where(interest_id: 4) %>
 
+<br>
 
+<% if logged_in? %>
+	
+	<div>
+			<%= form_for :comment , url: comments_path do |f| %>
+				
+				
+			   <%= f.text_area :saying, placeholder: "Add a comment..." %>
 
+			   <%= f.hidden_field(:interest_id)%> 
+			  
+			  <%= f.submit "Post", class: "btn btn-large btn-primary" %>
+			<% end %>
+		</div>
+<% else %>
+	<br>
+	<p>Please <%= link_to "Login", login_path %> to comment</p>
+
+<% end %>
 
 
 
