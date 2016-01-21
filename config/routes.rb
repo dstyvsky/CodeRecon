@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get    'aggregate_todo'   =>  'projects#aggregate_todo'
   get    'knowledge_center' =>  'projects#knowledge_center'
   get    'learn_ruby'       =>  'projects#learn_ruby'
+  get    'wuds'             =>  'projects#wuds'
 
   resources :users
   resources :account_activations, only: [:edit]

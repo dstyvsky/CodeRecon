@@ -6,8 +6,19 @@
 html body{
 	background-color: rgb(48,10, 36);
 }
-h1, h2, a, a:hover{
+h1, h2{
 	color: white
+}
+h1 a, h2 a, h3 a, h5 a{
+  color: white;
+  text-decoration: none;
+}
+a{
+  color: white;
+  text-decoration: underline;
+}
+a:hover{
+  color: green;
 }
 
 
@@ -250,6 +261,13 @@ ol{
   margin-top: 30px;
     text-align: center;
 
+}
+
+.ruby_pre{
+  width: 25%;
+  padding-bottom: 5;
+  margin-bottom: 5;
+  border-bottom: 0;
 }
 
 /* Lists */
