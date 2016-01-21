@@ -10,12 +10,12 @@
 I did want to make sure that the adapter would do what I required of it prior to purchase. This turned out to be a little tricky. At this point I had 3 requistes; that it was compatible with linux(Raspbian specifically), that it's power consumption could be handled by the Pi, and that it was capable of being put into <a href="https://en.wikipedia.org/wiki/Monitor_mode">Monitor mode</a><br><br>
 
 
-My first lesson was in linux hardware <a href="https://en.wikipedia.org/wiki/Chipset">chipsets</a>. For each chipset, the corresponding software should work regardless of the hardware manufacturer. Put another way, to a computer, a particular hardware chipset from one manufacturer is indistinguishable from one from another manufacturer. If you are a looking for whether a particular chipset is compatible, it WILL take some time and research. I was unable to find a site that listed out the compable hardware for these three requirements. There will be some cross checking and cross referencing involved. My advice, find one that someone else has used and look through the specs.<br><br>
+My first lesson was in linux hardware <a href="https://en.wikipedia.org/wiki/Chipset">chipsets</a>. For each chipset, the corresponding software should work regardless of the hardware manufacturer. Put another way, to a computer, a particular hardware chipset from one manufacturer is indistinguishable from one from another manufacturer. If you are looking for whether a particular chipset is compatible, it WILL take some time and research. I was unable to find a site that listed out the compable hardware for these three requirements. There will be some cross checking and cross referencing involved. My advice, find one that someone else has used and look through the specs.<br><br>
 
 I eventually settled on a 5370 chipset produced by Anewish which you can find <a href="http://www.amazon.com/AneWish-Mini-Wireless-Wifi-150Mbps/dp/B017N6KI8W%3Fpsc%3D1%26SubscriptionId%3DAKIAILSHYYTFIVPWUY6Q%26tag%3Dduckduckgo-d-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB017N6KI8W">here</a>. For 6 bucks. Not bad.<br></p>
 <h3>Software Setup</h3><p>
 Installed <a href="http://secdev.org/projects/scapy/doc/installation.html">Scapy</a>.
-I almost went with Scruby, having worked mostly with Ruby up until this point but I wanted to test out the more polished and well known toolset and was looking forward to trying out some of the Python. Turns out it's a lot like Ruby but with a few semi-colons. I would mostly write like I was writing Ruby code and the errors were plenty of information for me to fix whatever came up as a problem as long as I went slow.<br><br>
+I almost went with Scruby, having worked mostly with Ruby up until this point but I wanted to test out the more polished and well known toolset and was looking forward to trying out some of the Python. Turns out it's a lot like Ruby but with a few semi-colons here and there.<br><br>
 
 
 By the time the adapter had arrived I was already parsing MAC addresses from ethernet packets on the Raspberry Pi itself. But, having gotten used to having a couple monitors to myself, I was a little leery of giving one up for the Raspberry Pi, not to mention sharing a keyboard. After some <a href="https://duckduckgo.com/">Duck, Duck, Go</a>, it appeared that I would be able to save some time and complexity by setting up something known as <a href="https://en.wikipedia.org/wiki/Secure_Shell">SSH</a> I was quite dissapointed that the H was not representative of a whole seperate word. <br><br>
@@ -26,7 +26,7 @@ SSH was fantastic to use once I found the -Y option to enable X11(the ability to
 
 Once the Anewish 5370 arrived, I was able to slap it in there and start pulling down signals right away. Kind of.<br></p>
 <h3>Monitor Mode</h3><p>
-First I had to get that sucker into monitor mode. After I installed <a href="http://www.aircrack-ng.org/doku.php?id=install_aircrack">Aircrack-ng</a> and then checked <a href="http://www.aircrack-ng.org/doku.php?id=airmon-ng">this</a> out.
+First I had to get that little guy into monitor mode. After I installed <a href="http://www.aircrack-ng.org/doku.php?id=install_aircrack">Aircrack-ng</a> and then checked <a href="http://www.aircrack-ng.org/doku.php?id=airmon-ng">this</a> out.
 Ran the commands, and voila. That should did it. You are basically telling it to just shut up and listen.<br><br></p>
 <pre class="ruby_pre">
 ~# airmon-ng check kill
@@ -65,7 +65,7 @@ The Scapy sniff command is what really drives the program forward. When a new pa
 
 <h3>Components</h3><p>
 
-I needed to install <a href="https://pip.pypa.io/en/latest/installing/">Pip</a>, a type of package manager, in order to install <a href="https://humanfriendly.readthedocs.org/en/latest/#getting-started">HumanFriendly</a> to making the table look nice.<br><br>
+I needed to install <a href="https://pip.pypa.io/en/latest/installing/">Pip</a>, a Python of package manager, in order to install <a href="https://humanfriendly.readthedocs.org/en/latest/#getting-started">HumanFriendly</a> to making the table look nice.<br><br>
 
 Deciding on an implementation for tagging the device vendor was kind of a toss up. As interested as I am at REGEX functions they can still be a bit intimidating at times. I decided to skip over this for now and use a simpler search algorithm. I did run into a funny little problem while getting this set up though. I had the vendors.txt file saved on my desktop, but how do I get it to the Pi? I had used a my GUI to find it and download it. Turns out. It is pretty simple <a href="http://www.howtogeek.com/66776/how-to-remotely-copy-files-over-ssh-without-entering-your-password/">to copy files over SSH.</a> <br><br>
 
