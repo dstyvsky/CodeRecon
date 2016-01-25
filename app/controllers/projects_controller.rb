@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+	  has_mobile_fu
 	def code_recon_todo
 		@list = Interest.find_by_id(1).lists.build if logged_in?
 
@@ -13,6 +14,7 @@ class ProjectsController < ApplicationController
 	end
 
 	def wuds
+		
 		@comment = Interest.find_by_id(4).comments.build if logged_in?
 	end
 	

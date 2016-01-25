@@ -1,0 +1,127 @@
+
+<div>
+	<h3 class="project_title">Wireless User Detection System</h3>
+</div>
+<div class="pane_head"></div><h3>The Starting Goal</h3><br>
+<p>
+...was to create the WUDS system specified <a href="http://www.lanmaster53.com/2014/10/wifi-user-detection-system/">here</a>. As inspired by <a href="https://www.reddit.com/user/gindc">/u/gindc</a> <a href="https://www.reddit.com/r/raspberry_pi/comments/3ynxp9/wifispi_my_wardriving_raspberry_pi_setup/cyf64wy?context=3">here.</a>The first step was to download <a href="http://www.secdev.org/projects/scapy/doc/index.html">Scapy</a> and begin to mess with that. I first installed Scapy onto my Linux Mint desktop to sniff a few ethernet packets on my local network in order to make sure everything was running smooth. Once this was up and running I was confident enough to go ahead and purchase a wireless adapter for my Raspberry Pi that I had sitting around.</p>
+<h3>Equipment</h3>
+<p>
+I did want to make sure that the adapter would do what I required of it prior to purchase. This turned out to be a little tricky. At this point I had 3 requistes; that it was compatible with linux(Raspbian specifically), that it's power consumption could be handled by the Pi, and that it was capable of being put into <a href="https://en.wikipedia.org/wiki/Monitor_mode">Monitor mode</a><br><br>
+
+
+My first lesson was in linux hardware <a href="https://en.wikipedia.org/wiki/Chipset">chipsets</a>. For each chipset, the corresponding software should work regardless of the hardware manufacturer. Put another way, to a computer, a particular hardware chipset from one manufacturer is indistinguishable from one from another manufacturer. If you are looking for whether a particular chipset is compatible, it WILL take some time and research. I was unable to find a site that listed out the compable hardware for these three requirements. There will be some cross checking and cross referencing involved. My advice, find one that someone else has used and look through the specs.<br><br>
+
+I eventually settled on a 5370 chipset produced by Anewish which you can find <a href="http://www.amazon.com/AneWish-Mini-Wireless-Wifi-150Mbps/dp/B017N6KI8W%3Fpsc%3D1%26SubscriptionId%3DAKIAILSHYYTFIVPWUY6Q%26tag%3Dduckduckgo-d-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB017N6KI8W">here</a>. For 6 bucks. Not bad.<br></p>
+<h3>Software Setup</h3><p>
+Installed <a href="http://secdev.org/projects/scapy/doc/installation.html">Scapy</a>.
+I almost went with Scruby, having worked mostly with Ruby up until this point but I wanted to test out the more polished and well known toolset and was looking forward to trying out some of the Python. Turns out it's a lot like Ruby but with a few semi-colons here and there.<br><br>
+
+
+By the time the adapter had arrived I was already parsing MAC addresses from ethernet packets on the Raspberry Pi itself. But, having gotten used to having a couple monitors to myself, I was a little leery of giving one up for the Raspberry Pi, not to mention sharing a keyboard. After some <a href="https://duckduckgo.com/">Duck, Duck, Go</a>, it appeared that I would be able to save some time and complexity by setting up something known as <a href="https://en.wikipedia.org/wiki/Secure_Shell">SSH</a> I was quite dissapointed that the H was not representative of a whole seperate word. <br><br>
+
+While I did create an RSA key for testing, I did not end up keeping it and stayed with the plain text password. In the event that I did open up a port to the WWW though, the RSA key would become completely necessary. <br><br>
+
+SSH was fantastic to use once I found the -Y option to enable X11(the ability to run GUI applications remotely.) This, in conjunction with installing GEDIT on the Pi, saved me. While I considered developing on my desktop and pushing that up to Github and then pulling back to the Pi, or copying back and forth on the local network, the ability to quickly test code as I changed it led me to stick with SSH. You can even have open multiple SSH terminals to the Pi! Just like on my own desktop! Deal maker.<br><br>
+
+Once the Anewish 5370 arrived, I was able to slap it in there and start pulling down signals right away. Kind of.<br></p>
+<h3>Monitor Mode</h3><p>
+First I had to get that little guy into monitor mode. After I installed <a href="http://www.aircrack-ng.org/doku.php?id=install_aircrack">Aircrack-ng</a> and then checked <a href="http://www.aircrack-ng.org/doku.php?id=airmon-ng">this</a> out.
+Ran the commands, and voila. That should did it. You are basically telling it to just shut up and listen.<br><br></p>
+<pre class="ruby_pre">
+~# airmon-ng check kill
+</pre>
+<p>
+and</p><br>
+<pre class="ruby_pre">
+~# airmon-ng start wlan0
+</pre><p>
+are the particularly critical commands.<br><br>
+</p>
+<h3>The Program</h3><p>
+This is where the code begins.<br><br>
+
+In it's current state, it can be found <a href="https://github.com/dstyvsky/WUDS/blob/master/techno.py">here</a><br><br>
+
+The program itself has a few main components.<br><br>
+
+1.) Scapy<br>
+The Scapy sniff command is what really drives the program forward. When a new packet is found, it is dispatched off to find out whether it can be of any use. If so, it is tortured and made to talk. Not really, it's all plain text, it talks right away. <br><br>
+
+2.) Parsing information<br>
+	Records the MAC address, <br>
+	signal strength, <br>
+	and the SSID's the device wants to connect to<br><br>
+
+3.) Enhancing information<br>
+	Adds a time stamp, <br>
+	finds a manufacturer based on the MAC(to display whether it is Apple, Samsung or otherwise)<br>
+	converts to EST<br><br>
+
+4.) Displays output<br>
+	Uses Humanfriendly to create a nice table<br>
+	uses Termcolor to make it easier to visually differentiate hosts and clients<br>
+	creates an alert text message if uncommented<br><br></p>
+
+<h3>Components</h3><p>
+
+I needed to install <a href="https://pip.pypa.io/en/latest/installing/">Pip</a>, a Python of package manager, in order to install <a href="https://humanfriendly.readthedocs.org/en/latest/#getting-started">HumanFriendly</a> to making the table look nice.<br><br>
+
+Deciding on an implementation for tagging the device vendor was kind of a toss up. As interested as I am at REGEX functions they can still be a bit intimidating at times. I decided to skip over this for now and use a simpler search algorithm. I did run into a funny little problem while getting this set up though. I had the vendors.txt file saved on my desktop, but how do I get it to the Pi? I had used a my GUI to find it and download it. Turns out. It is pretty simple <a href="http://www.howtogeek.com/66776/how-to-remotely-copy-files-over-ssh-without-entering-your-password/">to copy files over SSH.</a> <br><br>
+
+The HumanFriendly tables were a little tough to wrangle in at first but once you look a little closer at the multi dimensional arrays that it takes, it starts to make more sense. Also, I had to watch my data and know the size of my terminal output. There are built in methods in the HumanFriendly documentation for finding the terminal size but it did not make sense to go that deep into things for this particular application. If the table overflows, it will break the output look completely.<br><br>
+
+For the text messaging, I used the Google Mail because I have had previous experience with it when setting up RAILS applications with contact forms.<br><br>
+I just had to be sure to enable unsecure apps to access the mailbox and then set my application up to send based upon what the cell carriers extension is. This should work fine so long as the sending is kept minimal. <br><br>
+</p><h3>Going Mobile</h3><p>
+At this point I decided that it might be useful to make this device more portable. I deduced that this would require 3 further hardware addtions; a case for the Raspberry Pi, another antenna to recieve or send on, and a battery. I setteld on the the <a href="http://www.newegg.com/Product/Product.aspx?Item=N82E16833164042">Hawking HAWNU1</a> which actually drastically improved my range. The case was very basic at $12. What was nice about it though were the rubber stops on the bottom that reduced sliding when strapped to the battery with a few rubber bands. The battery, I found on sale at a brick and mortar for $20 at 8600 mAh. Any of these portable charging stations that you see for cell phones and such should work find as long as it is outputing 2.1A at 5V. The 8600mAh model appears to be powering the pi and and antennas for approximately 12 hours at a time. Just be sure to power down the Pi yourself before the battery runs out in order to avoid voltage drops.<br><br>
+
+From here I configured the Hawking into monitor mode and the Anewish into an access point. The tutorial for this can be found <a href="http://elinux.org/RPI-Wireless-Hotspot">here</a>. I just followed the direct instructions although it was likely overkill for this project. Though if my Pi is in fact jacked into an ethernet connection though while this software is running, I was able to use it as an Access Point.<br><br>
+
+With this set up I was able to SSH into the Pi from my Apple phone. I had considered purchasing a small screen to slap onto the Pi, and there are many out there to be had for around $40. But why add to what I am already carring around? With the ServerAuditor Iphone app, I was able bring up a terminal prompt in no time flat. <br><br>
+
+This worked great for testing but it soon became cumbersome to run all of the configuration each time so I employed 'aliasing' which I had learned about not too long ago. I just had to be sure to save these in my bash.rc file or they won't be saved after shutting down. It would also be fairly trivial to run through these commands as part of the startup of the device had that suited my purposes.<br><br>
+</p><h3>Anchors Up!</h3><p>
+There are many ways that I could continue with this project in the future such as adding: <br><br>
+
+	A WEB SERVER - After working with rails it would be a great experiment to feed this data into a web page that is served up and updated asynchronously. This would enable a quick boot where one could just connect to the AP and visit a URL and have data the could be presented in a much 'more' human friendly way with a lot more options for colorization and sizing.<br><br>
+ 
+	MULTIPLE POINTS IN TANDEM  - Adding in multiple WUDS systems in a local area and having them work in tandem to track devices that are traveling along a particular pathway.<br><br>
+
+	PROCESS INTERRUPTS- It would be nice to have the ability for the program to read input from the keyboard and react to resort data based upon signal strength, types or otherwise. Also to be able to rename devices on the fly and then store these names to a file that would overwrite the displaying MAC address when found.<br><br>
+
+
+In the end, I did not implement the same system as had inspired me to this project although mine is not far off. If I were to track down all of the MAC addresses in the area and give them a green light and then have a text fired off to me when one showed up that was unsual, that would be the last step. This would just be a combination of the 'Vendor matching' and 'text messaging' systems that I already have in place. The main reason that this was not eventually implemented was for its faults as a security system. While testing the device I realized just how many devices do slip through the cracks. I would not want to depend on it as a warning system and be given any sort of false sense of security. If someone was aware of a particular individual who is always broadcasting though, this would be a great tool. Think mail man, garbage man, friend, neighbor. Maybe using a system of said devices to track general foot traffic. There are many overlooked uses here which one can draw thier own conclusions about.<br><br>
+
+
+</p>
+
+
+<h2>Comments</h2>
+
+<%=  render Comment.where(interest_id: 4) %>
+
+<br>
+
+<% if logged_in? %>
+	
+	<div>
+			<%= form_for :comment , url: comments_path do |f| %>
+				
+				
+			   <%= f.text_area :saying, placeholder: "Add a comment..." %>
+
+			   <%= f.hidden_field(:interest_id)%> 
+			  
+			  <%= f.submit "Post", class: "btn btn-large btn-primary" %>
+			<% end %>
+		</div>
+<% else %>
+	<br>
+	<p>Please <%= link_to "Login", login_path %> to comment</p>
+
+<% end %>
+
+
+
+

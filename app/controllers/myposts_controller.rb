@@ -1,6 +1,7 @@
 class MypostsController < ApplicationController
 	before_action :logged_in_user, only: [:create, :destroy]
 
+
 	def create
 		@mypost = current_user.myposts.build(mypost_params)
 		if @mypost.save
@@ -17,6 +18,7 @@ class MypostsController < ApplicationController
 	def show
 		@mypost = Mypost.find(params[:id])
 
+    	
 	end
 
 

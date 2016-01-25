@@ -1,0 +1,6 @@
+
+<br><br>
+<div class="comment_format">
+	<p><%= User.find_by_id(comment.user_id).name %>:</p>
+	<p><%= simple_format(comment.saying) %></p>
+</div>

@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
-  root                    'static_pages#home'
-  get 'password_resets/new'
+  root 'static_pages#home'
+  
+  get  'password_resets/new'
 
-  get 'password_resets/edit'
+  get  'password_resets/edit'
 
-  get 'sessions/new'
+  get  'sessions/new'
 
-  get 'users/new'
+  get  'users/new'
 
   
 
