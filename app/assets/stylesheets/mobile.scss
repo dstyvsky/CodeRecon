@@ -3,11 +3,39 @@
 	display: inline-block;
 
 	p, h3{
-	font-size: 60px;
-	line-height: 80px;
+		font-size: 60px;
+		line-height: 80px;
 	}
 
 	h3{
-	text-align: center;
+		text-align: center;
+	}
+
+}
+.mobile_title{
+	font-size: 100px;
+
+
+}
+.mobile_divider{
+  height: 1px;
+  width: 100%;
+  background-color: white;
+
+}
+.mobile_head{
+	width: 100%;
+}
+.head_left {
+
+	display: inline-block;
+	text-align: left;
+}
+
+.head_right{
+	margin-left: 10px;
+	display: inline-block;
+	h4{
+		font-size: 25px;
 	}
 }
