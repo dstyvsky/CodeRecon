@@ -1,21 +1,21 @@
 <div id="footer">
 	<div class="footer_tab">
-		<p class="footer_word"><%= link_to "HOME", root_path %></p>
+		<%= link_to "HOME", root_path, class:"footer_word"%>
 	</div>
 
 	<div class="footer_tab">
-		<p class="footer_word"><%= link_to "Create Account", signup_path %></p>
+		<%= link_to "Create Account", signup_path, class:"footer_word" %></p>
 	</div>
 	<% if logged_in? %>
 		<div class="footer_tab">
-			<p class="footer_word"><%= link_to "Logout", logout_path, method: "delete" %>
+			<%= link_to "Logout", logout_path, method: "delete", class:"footer_word" %>
 		</div>
 		<div class="footer_tab">
-			<p class="footer_word"><%= link_to "Settings", edit_user_path(current_user) %><p>
+			<%= link_to "Settings", edit_user_path(current_user), class:"footer_word" %><p>
 		</div>
 	<% else %>
 		<div class="footer_tab">
-			<p class="footer_word"><%= link_to "Login", login_path %><p>
+			<%= link_to "Login", login_path, class:"footer_word" %>
 		</div>
 	<% end %>
 
