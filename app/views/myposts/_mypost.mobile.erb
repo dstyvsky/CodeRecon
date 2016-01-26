@@ -1,0 +1,19 @@
+<li id="mypost-<%= mypost.id %>">
+
+  <span class="title">
+  	<h5>
+  		<%= link_to mypost.title, mypost %>
+  	</h5>
+  </span>
+  	<div  class="full_post">
+	  	<div class="spacer">
+	  	</div>
+	  	<div class="post_indent">
+		  <span class="content"><%= simple_format(mypost.content) %></span>
+		  
+		  	<span class="time"><p class="mobile_time">- Last updated <%= time_ago_in_words(mypost.created_at) %> ago</p></span>
+		</div>
+	</div>
+
+ 
+</li>
