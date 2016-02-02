@@ -184,9 +184,10 @@ label{
 }
 .full_post{
   width: 100%;
- 
   
 }
+
+
 .spacer{
   width:5%;
   height: 200px;
@@ -209,7 +210,9 @@ label{
   color: white;
 }
 
-
+.each_post{
+	margin-bottom: 100px;
+}
 /* Header */
 
 .divider{
@@ -312,6 +315,11 @@ label{
 }
 .wuds_image{
 	width: 100%;
+	border-radius: 100%;
+	border: black solid 1px;
+}
+.wuds_image_front{
+	width: 50%;
 	border-radius: 100%;
 	border: black solid 1px;
 }
