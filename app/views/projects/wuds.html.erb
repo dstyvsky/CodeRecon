@@ -10,7 +10,7 @@
 
 <h2>Comments</h2>
 
-<%=  render Comment.where(interest_id: 4) %>
+<%=  render Comment.where(interest_id: 4)  if Comment.where(interest_id:4) %>
 
 <br>
 
