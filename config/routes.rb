@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   get    'knowledge_center' =>  'projects#knowledge_center'
   get    'learn_ruby'       =>  'projects#learn_ruby'
   get    'wuds'             =>  'projects#wuds'
+  get    'mobile_news'      =>  'static_pages#news'
+  get    'mobile_projects' =>  'static_pages#projects' 
 
   resources :users
   resources :account_activations, only: [:edit]

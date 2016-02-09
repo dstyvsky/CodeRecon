@@ -45,3 +45,58 @@
 		font-size: 25px;
 	}
 }
+
+/* Mobile Front Page */
+
+.mobile_front{
+	width: 100%;
+	height: 100%;
+	div {
+		border: 5px solid white;
+	}
+	.yellow_button{
+		background:rgb(200,200,30);
+	}
+	.green_button{
+		background:rgb(0,200,0);
+	}
+	.blue_button{
+		background:rgb(0,0,200);
+	}
+	.pink_button{
+		background:rgb(200,0,200);;
+	}
+	.orange_button{
+		background:rgb(255,165,0);
+	}
+	.black_button{
+		background:rgb(0,0,0);
+	}
+	.light_blue_button{
+		background: #00DEFF;	
+	}
+	.red_button{
+		background: #FF0044;
+	}
+
+}
+.big_button{
+	width: 95%;
+	height: 200px;
+	border-radius: 25px;
+	margin: auto;
+	margin-top: 50px;
+
+
+
+}
+
+.button_title{
+	color: white;
+	font-size: 130px;
+	text-align: center;
+}
+
+.button_link_format{
+	text-decoration: none;
+}

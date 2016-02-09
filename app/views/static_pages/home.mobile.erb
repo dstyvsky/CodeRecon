@@ -1,23 +1,22 @@
-
-
-  <div class="col-md-8">
-    <% if User.first.myposts.any? %>
-      	
-     	 <ol class="microposts">
-
-        	<%= render Mypost.all %>
-     	 </ol>
-      
-    <% end %>
-    <% if logged_in? && current_user.admin %>
-	<div>
-		<%= form_for(@mypost) do |f| %>
-		  <%= render 'shared/error_messages', object: f.object %>
-		  <div class="field">
-		    <%= f.text_area :content, placeholder: "Compose new post..." %>
-		  </div>
-		  <%= f.submit "Post", class: "btn btn-large btn-primary" %>
-		<% end %>
-	</div>
-<% end %>
-  </div>
+<div class="mobile_front">
+	<%= link_to mobile_news_url, {:class => "button_link_format"} do %>
+		<div class="big_button yellow_button">
+			<h1 class="button_title">News</h1>
+		</div>
+	<% end %>
+	<%= link_to mobile_projects_url, {:class => "button_link_format"} do %>
+		<div class="big_button green_button">
+			<h1 class="button_title">Projects</h1>
+		</div>
+	<% end %>
+	<%= link_to wuds_url, {:class => "button_link_format"} do %>
+		<div class="big_button blue_button">
+			<h1 class="button_title">WUDS</h1>
+		</div>
+	<% end %>
+	<%= link_to mobile_news_url, {:class => "button_link_format"} do %>
+		<div class="big_button pink_button">
+			<h1 class="button_title">Resources</h1>
+		</div>
+	<% end %>
+</div>
