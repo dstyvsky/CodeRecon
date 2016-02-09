@@ -27,7 +27,8 @@ h1 a, h1 a:hover{
   text-decoration: none;
 }
 a:hover{
-  color: green;
+  color: none;
+  text-decoration: none;
 }
 
 p{
@@ -41,21 +42,17 @@ ol{
   list-style: none;
 }
 
-h3{
+h3, h2{
   color: white;
-  font-family: 'Roboto'
-
+  font-family: 'Roboto';
+  color: rgb(200,200,30);
+}
+h2{
+  font-size: 70px;
 }
 h4{
   color: white;
   font-size: 12pt;
-}
-
-h5{
-  color: white;
-  font-size: 18pt;
-  margin-top: 40px;
-  margin-bottom: 25px;
 }
 li{
   color: white;

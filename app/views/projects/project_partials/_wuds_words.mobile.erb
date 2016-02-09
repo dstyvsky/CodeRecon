@@ -1,14 +1,27 @@
+
+<div class='wuds_photo'>
+	<%= image_tag('IMG_0555.JPG',  class: 'wuds_image') %>
+</div>
 <p>
-...was to create the WUDS system specified <a href="http://www.lanmaster53.com/2014/10/wifi-user-detection-system/">here</a>. As inspired by <a href="https://www.reddit.com/user/gindc">/u/gindc</a> <a href="https://www.reddit.com/r/raspberry_pi/comments/3ynxp9/wifispi_my_wardriving_raspberry_pi_setup/cyf64wy?context=3">here.</a>The first step was to download <a href="http://www.secdev.org/projects/scapy/doc/index.html">Scapy</a> and begin to mess with that. I first installed Scapy onto my Linux Mint desktop to sniff a few ethernet packets on my local network in order to make sure everything was running smooth. Once this was up and running I was confident enough to go ahead and purchase a wireless adapter for my Raspberry Pi that I had sitting around.</p><br>
+	The WUDS system will monitor all WiFi traffic in the area for either specific or unsual wireless devices and then alert the administrator by text message. It also has the ability to go mobile and display all plain text information transmitted by WiFi protocol in a real time updated table on the administrators phone, laptop or tablet. This information is pulled from Probe Requests orginating from devices looking for an access point that they recognize in order to connect to it. A majority of todays smart phones are doing this constantly. This is my take on the system specified <a href="http://www.lanmaster53.com/2014/10/wifi-user-detection-system/">here</a>. As inspired by <a href="https://www.reddit.com/user/gindc">/u/gindc</a> <a href="https://www.reddit.com/r/raspberry_pi/comments/3ynxp9/wifispi_my_wardriving_raspberry_pi_setup/cyf64wy?context=3">here.</a>The first step was to download <a href="http://www.secdev.org/projects/scapy/doc/index.html">Scapy</a> and begin to learn about that. I first installed Scapy onto my Linux Mint desktop to sniff a few ethernet packets on my local network in order to make sure everything was running smooth. Once this was up and running I was confident enough to go ahead and purchase a wireless adapter for my Raspberry Pi that I had sitting around.
+</p>
+
+
+
 <h3>Equipment</h3><br>
 <p>
 I did want to make sure that the adapter would do what I required of it prior to purchase. This turned out to be a little tricky. At this point I had 3 requistes; that it was compatible with linux(Raspbian specifically), that it's power consumption could be handled by the Pi, and that it was capable of being put into <a href="https://en.wikipedia.org/wiki/Monitor_mode">Monitor mode</a><br><br>
 
 
 My first lesson was in linux hardware <a href="https://en.wikipedia.org/wiki/Chipset">chipsets</a>. For each chipset, the corresponding software should work regardless of the hardware manufacturer. Put another way, to a computer, a particular hardware chipset from one manufacturer is indistinguishable from one from another manufacturer. If you are looking for whether a particular chipset is compatible, it WILL take some time and research. I was unable to find a site that listed out the compable hardware for these three requirements. There will be some cross checking and cross referencing involved. My advice, find one that someone else has used and look through the specs.<br><br>
+<div class='wuds_photo'>
+	<%= image_tag('IMG_0564.JPG',  class: 'wuds_image') %>
+</div>
+<p>I eventually settled on a 5370 chipset produced by Anewish which you can find <a href="http://www.amazon.com/AneWish-Mini-Wireless-Wifi-150Mbps/dp/B017N6KI8W%3Fpsc%3D1%26SubscriptionId%3DAKIAILSHYYTFIVPWUY6Q%26tag%3Dduckduckgo-d-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB017N6KI8W">here</a>. For 6 bucks. Not bad.<br></p>
 
-I eventually settled on a 5370 chipset produced by Anewish which you can find <a href="http://www.amazon.com/AneWish-Mini-Wireless-Wifi-150Mbps/dp/B017N6KI8W%3Fpsc%3D1%26SubscriptionId%3DAKIAILSHYYTFIVPWUY6Q%26tag%3Dduckduckgo-d-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB017N6KI8W">here</a>. For 6 bucks. Not bad.<br><br></p>
-<h3>Software Setup</h3><p>
+
+
+<h3>Software Setup</h3><p><br>
 Installed <a href="http://secdev.org/projects/scapy/doc/installation.html">Scapy</a>.
 I almost went with Scruby, having worked mostly with Ruby up until this point but I wanted to test out the more polished and well known toolset and was looking forward to trying out some of the Python. Turns out it's a lot like Ruby but with a few semi-colons here and there.<br><br>
 
@@ -19,7 +32,7 @@ While I did create an RSA key for testing, I did not end up keeping it and staye
 
 SSH was fantastic to use once I found the -Y option to enable X11(the ability to run GUI applications remotely.) This, in conjunction with installing GEDIT on the Pi, saved me. While I considered developing on my desktop and pushing that up to Github and then pulling back to the Pi, or copying back and forth on the local network, the ability to quickly test code as I changed it led me to stick with SSH. You can even have open multiple SSH terminals to the Pi! Just like on my own desktop! Deal maker.<br><br>
 
-Once the Anewish 5370 arrived, I was able to slap it in there and start pulling down signals right away. Kind of.<br><br></p>
+Once the Anewish 5370 arrived, I was able to slap it in there and start pulling down signals right away. Kind of.<br></p>
 <h3>Monitor Mode</h3><br><p>
 First I had to get that little guy into monitor mode. After I installed <a href="http://www.aircrack-ng.org/doku.php?id=install_aircrack">Aircrack-ng</a> and then checked <a href="http://www.aircrack-ng.org/doku.php?id=airmon-ng">this</a> out.
 Ran the commands, and voila. That should did it. You are basically telling it to just shut up and listen.<br><br></p>
@@ -68,6 +81,12 @@ The HumanFriendly tables were a little tough to wrangle in at first but once you
 
 For the text messaging, I used the Google Mail because I have had previous experience with it when setting up RAILS applications with contact forms.<br><br>
 I just had to be sure to enable unsecure apps to access the mailbox and then set my application up to send based upon what the cell carriers extension is. This should work fine so long as the sending is kept minimal. <br><br>
+<div class='wuds_photo'>
+	<%= image_tag('IMG_0561.JPG',  class: 'wuds_image') %>
+</div>
+<div class='wuds_photo'>
+	<%= image_tag('IMG_0562.JPG',  class: 'wuds_image') %>
+</div>
 </p><h3>Going Mobile</h3><br><p>
 At this point I decided that it might be useful to make this device more portable. I deduced that this would require 3 further hardware addtions; a case for the Raspberry Pi, another antenna to recieve or send on, and a battery. I setteld on the the <a href="http://www.newegg.com/Product/Product.aspx?Item=N82E16833164042">Hawking HAWNU1</a> which actually drastically improved my range. The case was very basic at $12. What was nice about it though were the rubber stops on the bottom that reduced sliding when strapped to the battery with a few rubber bands. The battery, I found on sale at a brick and mortar for $20 at 8600 mAh. Any of these portable charging stations that you see for cell phones and such should work find as long as it is outputing 2.1A at 5V. The 8600mAh model appears to be powering the pi and and antennas for approximately 12 hours at a time. Just be sure to power down the Pi yourself before the battery runs out in order to avoid voltage drops.<br><br>
 
@@ -85,8 +104,12 @@ There are many ways that I could continue with this project in the future such a
 
 	PROCESS INTERRUPTS- It would be nice to have the ability for the program to read input from the keyboard and react to resort data based upon signal strength, types or otherwise. Also to be able to rename devices on the fly and then store these names to a file that would overwrite the displaying MAC address when found.<br><br>
 
+<div class='wuds_photo'>
+	<%= image_tag('IMG_0558.JPG',  class: 'wuds_image') %>
+</div>
 
-In the end, I did not implement the same system as had inspired me to this project although mine is not far off. If I were to track down all of the MAC addresses in the area and give them a green light and then have a text fired off to me when one showed up that was unsual, that would be the last step. This would just be a combination of the 'Vendor matching' and 'text messaging' systems that I already have in place. The main reason that this was not eventually implemented was for its faults as a security system. While testing the device I realized just how many devices do slip through the cracks. I would not want to depend on it as a warning system and be given any sort of false sense of security. If someone was aware of a particular individual who is always broadcasting though, this would be a great tool. Think mail man, garbage man, friend, neighbor. Maybe using a system of said devices to track general foot traffic. There are many overlooked uses here which one can draw thier own conclusions about.<br><br>
+<p>In the end, I did not implement the same system as had inspired me to this project although mine is not far off. If I were to track down all of the MAC addresses in the area and give them a green light and then have a text fired off to me when one showed up that was unsual, that would be the last step. This would just be a combination of the 'Vendor matching' and 'text messaging' systems that I already have in place. The main reason that this was not eventually implemented was for its faults as a security system. While testing the device I realized just how many devices do slip through the cracks. I would not want to depend on it as a warning system and be given any sort of false sense of security. If someone was aware of a particular individual who is always broadcasting though, this would be a great tool. Think mail man, garbage man, friend, neighbor. Maybe using a system of said devices to track general foot traffic. There are many overlooked uses here which one can draw thier own conclusions about.<br><br>
 
 
 </p>
+
