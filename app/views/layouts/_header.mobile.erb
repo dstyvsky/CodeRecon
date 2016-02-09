@@ -2,9 +2,12 @@
 <div class="mobile_head">
 	<div class="head_left">
 		<h1 class="mobile_title"><%= link_to "Code Recon", root_path %></h1>
+		<h4>A Frontline Programming Report</h4>
 	</div>
 	<div class="head_right">
-		<h4>A Frontline Programming Report</h4>
+		<%= link_to root_path do %>
+			<%= image_tag("home.png", class: "home_icon") %>
+		<% end %>
 	</div>
 </div>
 <div class="mobile_divider"></div>
