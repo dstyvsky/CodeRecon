@@ -19,6 +19,10 @@ a{
   color: white;
   text-decoration: underline;
 }
+span a{
+  text-decoration: none;
+  font-size: 20pt;
+}
 p a {
   color:    #228B22;
 }
@@ -57,9 +61,12 @@ h4{
 li{
   color: white;
 }
-p{
+h5 a{
+    font-size: 60px;
+    color:rgb(200,165,0);
+    text-align: center;
 
-}
+  }
 /* footer */
 html{
 	position: relative;
@@ -208,7 +215,7 @@ label{
 }
 
 .each_post{
-	margin-top: 100px;
+	margin-top: 50px;
 }
 /* Header */
 

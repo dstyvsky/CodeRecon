@@ -14,53 +14,87 @@
 	.wuds_photo{
 		margin-top: 0;
 	}
-}
-
-h3{
-	font-size: 90px;
-}
-h5 a{
-	font-size: 100px;
-	color:rgb(200,165,0);
-	text-align: center;
-
-}
-.mobile_title{
-	font-size: 120px;
-
-
-}
-.mobile_divider{
-  height: 1px;
-  width: 100%;
-  background-color: white;
-
-}
-.mobile_head{
-	width: 100%;
-}
-.head_left {
-
-	display: inline-block;
-	text-align: left;
-	h4{
-		font-size: 35px;
+	h3{
+		font-size: 90px;
 	}
-}
+	h5 a{
+		font-size: 100px;
+		color:rgb(200,165,0);
+		text-align: center;
 
-.head_right{
-
-	float: right;
-	margin-top: 30px;
-	margin-right: 40px;
-	display: inline-block;
+	}
 	
+
+	/* WUDS */
+
+	.wuds_photo{
+		width: 100%;
+
+	}
+
+	.wuds_image{
+		border-radius: 50px;
+		margin: 30px;
+	}
+	.microposts .wuds_photo{
+		width: 40%;
+	}
+
+
+	.ruby_pre{
+		font-size: 40pt;
+		width: 100%;
+	}
+
+	/* Projects */
+
+	.project_title{
+		color: rgb(0,200,225);
+	}
+
+	li{
+		font-size: 35pt;
+	}
+
 }
 
-.home_icon{
-	height: 100pt;
-}
 
+/* header */
+.mobile_title{
+		font-size: 120px;
+
+
+	}
+		.mobile_divider{
+		  height: 1px;
+	  width: 100%;
+	  background-color: white;
+
+	}
+	.mobile_head{
+		width: 100%;
+	}
+	.head_left {
+
+		display: inline-block;
+		text-align: left;
+		h4{
+			font-size: 35px;
+		}
+	}
+
+	.head_right{
+
+		float: right;
+		margin-top: 30px;
+		margin-right: 40px;
+		display: inline-block;
+	
+	}
+
+	.home_icon{
+		height: 100pt;
+	}
 /* Mobile Front Page */
 
 .mobile_front{
@@ -127,35 +161,4 @@ h5 a{
 .huge{
 	height: 100%;
 	padding-bottom: 30px;
-}
-
-/* Projects */
-
-.project_title{
-	color: rgb(0,200,225);
-}
-
-li{
-	font-size: 35pt;
-}
-
-/* WUDS */
-
-.wuds_photo{
-	width: 100%;
-
-}
-
-.wuds_image{
-	border-radius: 50px;
-	margin: 30px;
-}
-.microposts .wuds_photo{
-	width: 40%;
-}
-
-
-.ruby_pre{
-	font-size: 40pt;
-	width: 100%;
 }
