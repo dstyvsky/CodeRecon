@@ -1,32 +1,39 @@
 <div class="mobile_front">
-	<%= link_to wuds_path, {:class => "button_link_format"} do %>
-		<div class="big_button blue_button">
-			<h1 class="button_title">WUDS</h1>
-		</div>
-	<% end %>
 
-	<%= link_to code_recon_todo_path, {:class => "button_link_format"} do %>
-		<div class="big_button orange_button">
-			<h1 class="button_title">Code Recon</h1>
-		</div>
-	<% end %>
+	<div class="big_button green_button huge">
+		<h1 class="button_title">Projects</h1>
+		
+	
+		<%= link_to wuds_path, {:class => "button_link_format"} do %>
+			<div class="big_button blue_button">
+				<h1 class="button_title">WUDS</h1>
+			</div>
+		<% end %>
 
-	<%= link_to aggregate_todo_path, {:class => "button_link_format"} do %>
-		<div class="big_button black_button">
-			<h1 class="button_title">Aggregate</h1>
-		</div>
-	<% end %>
+		<%= link_to code_recon_todo_path, {:class => "button_link_format"} do %>
+			<div class="big_button orange_button">
+				<h1 class="button_title">Code Recon</h1>
+			</div>
+		<% end %>
 
-	<%= link_to knowledge_center_path, {:class => "button_link_format"} do %>
-		<div class="big_button light_blue_button">
-			<h1 class="button_title">Knowledge Center</h1>
-		</div>
-	<% end %>
+		
 
-	<%= link_to "https://github.com/dstyvsky", {:class => "button_link_format"} do %>
-		<div class="big_button red_button">
-			<h1 class="button_title">GitHub</h1>
-		</div>
-	<% end %>
+		<%= link_to knowledge_center_path, {:class => "button_link_format"} do %>
+			<div class="big_button light_blue_button">
+				<h1 class="button_title">Knowledge</h1>
+			</div>
+		<% end %>
 
+		<%= link_to aggregate_todo_path, {:class => "button_link_format"} do %>
+			<div class="big_button black_button">
+				<h1 class="button_title">Aggregate</h1>
+			</div>
+		<% end %>
+
+		<%= link_to "https://github.com/dstyvsky", {:class => "button_link_format"} do %>
+			<div class="big_button red_button">
+				<h1 class="button_title">GitHub</h1>
+			</div>
+		<% end %>
+	</div>
 </div>

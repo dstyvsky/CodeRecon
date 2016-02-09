@@ -67,16 +67,16 @@
 		background:rgb(200,0,200);;
 	}
 	.orange_button{
-		background:rgb(255,165,0);
+		background:rgb(200,165,0);
 	}
 	.black_button{
-		background:rgb(0,0,0);
+		background:rgb(50,50,50);
 	}
 	.light_blue_button{
-		background: #00DEFF;	
+		background: rgb(0,200,225);	
 	}
 	.red_button{
-		background: #FF0044;
+		background: rgb(200,0, 90);
 	}
 
 }
@@ -99,4 +99,17 @@
 
 .button_link_format{
 	text-decoration: none;
+}
+
+.smaller{
+	width: 90%;
+	align: right;
+	.button_title{
+		font-size: 110px;
+	}
+}
+
+.huge{
+	height: 100%;
+	padding-bottom: 30px;
 }

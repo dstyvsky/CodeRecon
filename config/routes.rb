@@ -21,7 +21,8 @@ Rails.application.routes.draw do
   get    'learn_ruby'       =>  'projects#learn_ruby'
   get    'wuds'             =>  'projects#wuds'
   get    'mobile_news'      =>  'static_pages#news'
-  get    'mobile_projects' =>  'static_pages#projects' 
+  get    'mobile_projects'  =>  'static_pages#projects'
+  get    'mobile_resources' =>  'static_pages#resources'
 
   resources :users
   resources :account_activations, only: [:edit]
